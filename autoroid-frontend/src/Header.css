@@ -1,0 +1,89 @@
+/* Header container styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #EFFDFE;
+}
+
+/* Logo and title container */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black; /* Customize if needed */
+}
+
+.logo {
+    width: 100px;
+    margin-right: 10px;
+}
+
+/* Sell a Car button styling with added margin */
+.sell-car {
+    margin-left: 10px; /* Move it further right */
+    text-decoration: none;
+    color: #333;
+}
+
+/* Search bar styling */
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 300px; /* You can adjust the width */
+    margin: 0 100px;
+}
+/* Search bar styling */
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Allows it to take available space */
+    margin-left: 1rem; /* Adds space between search bar and navigation */
+}
+
+    .search-bar input[type="text"] {
+        padding: 8px 10px;
+        border: 1px solid #EFFDFE;
+        border-radius: 5px;
+        width: 250px; /* Adjust this width as needed */
+        padding-left: 30px; /* Adds space for the search icon */
+    }
+
+    /* Optional: Search icon styling */
+    .search-bar::before {
+        content: "\1F50D"; /* Unicode for a magnifying glass */
+        position: absolute;
+        left: 10px;
+        font-size: 16px;
+        color: #888;
+    }
+
+/* Auth buttons styling */
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+    .auth-buttons button {
+        background-color: #FF8A00;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+/* Ensure everything is aligned in one line */
+.header * {
+    height: 100%;
+    line-height: normal;
+}

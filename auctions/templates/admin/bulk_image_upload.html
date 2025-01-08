@@ -1,0 +1,49 @@
+﻿{% extends "admin/base_site.html" %}
+{% block content %}
+<h2>Bulk Upload Images</h2>
+<p>You are uploading images to the following auctions:</p>
+<ul>
+    {% for auction in auctions %}
+    <li><strong>{{ auction.title }}</strong></li>
+    {% endfor %}
+</ul>
+<form id="uploadForm" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Select Images to Upload:</label><br>
+    <input type="file" id="imageInput" name="images" multiple><br><br> <!-- Enable multi-select -->
+    <button type="submit" class="button">Upload Images</button>
+</form>
+<script>
+    const imageInput = document.getElementById('imageInput');
+    const errorMessages = document.getElementById('errorMessages');
+    const uploadForm = document.getElementById('uploadForm');
+    const uploadButton = document.getElementById('uploadButton');
+    const MAX_IMAGES = 150;
+    const MAX_SIZE = 100 * 1024 * 1024; // 100 MB
+    const fileInput = document.getElementById('imageInput');
+
+    fileInput.addEventListener('change', (event) => {
+        const files = event.target.files;
+        console.log(`Number of files selected: ${files.length}`);
+    });
+
+    uploadForm.addEventListener('submit', (event) => {
+        errorMessages.textContent = '';
+        const files = imageInput.files;
+        let totalSize = 0;
+
+        if (files.length > MAX_IMAGES) {
+            event.preventDefault();
+            errorMessages.textContent = `You can upload a maximum of ${MAX_IMAGES} images.`;
+            return;
+        }
+
+        Array.from(files).forEach(file => totalSize += file.size);
+
+        if (totalSize > MAX_SIZE) {
+            event.preventDefault();
+            errorMessages.textContent = 'The total size of selected images exceeds 100 MB.';
+        }
+    });
+</script>
+{% endblock %}

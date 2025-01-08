@@ -1,0 +1,14 @@
+.filters {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: flex-start; /* Align items to the left */
+    gap: 10px; /* Add some space between each filter */
+}
+
+    .filters select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        font-size: 14px;
+    }
